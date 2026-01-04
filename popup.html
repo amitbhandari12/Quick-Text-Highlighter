@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Time Tracker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <h1>⏱️ Time Tracker</h1>
+    <p>Monitor your website usage with style</p>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div id="status" class="status stopped">⏸ Tracking Stopped</div>
+      
+      <div id="currentSiteDiv" class="current-site" style="display: none;">
+        Currently on: <strong id="currentSite">-</strong>
+      </div>
+      
+      <div class="timer-section">
+        <div class="timer-input">
+          <label>⏰ Set Limit:</label>
+          <input type="number" id="timerInput" placeholder="30" min="1" max="999">
+        </div>
+        <div style="font-size: 12px; opacity: 0.8; text-align: center;">
+          Get notified when time limit is reached
+        </div>
+      </div>
+      
+      <div class="controls">
+        <button class="btn btn-start" id="startBtn">▶ Start</button>
+        <button class="btn btn-stop" id="stopBtn">⏹ Stop</button>
+      </div>
+      
+      <button class="btn btn-clear" id="clearBtn">🗑 Clear All Data</button>
+    </div>
+
+    <div class="card">
+      <h3>📊 Website Usage</h3>
+      <div class="site-list" id="siteList">
+        <div class="empty-state">
+          <div class="empty-state-icon">📱</div>
+          <div>No data yet.<br>Start tracking to see your usage!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
