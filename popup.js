@@ -27,7 +27,7 @@ function updateUI() {
     
     const state = response.state;
     
-    // Update status
+   
     if (state.isTracking) {
       statusDiv.textContent = '✓ Tracking Active';
       statusDiv.className = 'status tracking';
@@ -44,12 +44,12 @@ function updateUI() {
       currentSiteDiv.style.display = 'none';
     }
     
-    // Update timer
+ 
     if (state.timeLimit > 0) {
       timerInput.value = state.timeLimit;
     }
     
-    // Update site list
+    
     const sites = state.siteData || {};
     const siteArray = [];
     
@@ -110,6 +110,7 @@ clearBtn.addEventListener('click', function() {
   }
 });
 
-// Initial update and refresh every 1.5 seconds
+
 updateUI();
+
 setInterval(updateUI, 1500);
