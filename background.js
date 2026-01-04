@@ -7,7 +7,7 @@ let state = {
   notifiedSites: {}
 };
 
-// Initialize state from storage
+
 chrome.storage.local.get(['state'], function(result) {
   if (result.state) {
     state = result.state;
@@ -90,7 +90,7 @@ function stopTracking() {
   saveState();
 }
 
-// Listen for tab changes
+
 chrome.tabs.onActivated.addListener(function() {
   if (state.isTracking) {
     getCurrentTab();
@@ -122,7 +122,7 @@ chrome.windows.onFocusChanged.addListener(function(windowId) {
   }
 });
 
-// Save every 2 seconds
+
 setInterval(function() {
   if (state.isTracking && state.currentSite) {
     saveCurrentSite();
@@ -130,7 +130,7 @@ setInterval(function() {
   }
 }, 2000);
 
-// Message handler
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.action === 'start') {
     state.timeLimit = request.timeLimit || 0;
@@ -151,4 +151,5 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     sendResponse({ success: true, state: state });
   }
   return true;
+
 });
